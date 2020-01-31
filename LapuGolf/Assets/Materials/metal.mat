@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 0.82
+    - _Brightness: 0.64
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -68,21 +68,21 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HighlightOffset: 0.537
+    - _HighlightOffset: 0.721
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Offset: 0.539
+    - _Offset: 0.669
     - _Parallax: 0.02
-    - _RimPower: 8.4
+    - _RimPower: 8.15
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.509434, g: 0.29442233, b: 0, a: 1}
+    - _Color: {r: 0.4433962, g: 0.43248898, b: 0.24052154, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HiColor: {r: 0.2735849, g: 0.15614986, b: 0.17398857, a: 1}
-    - _RimColor: {r: 0.5754717, g: 0.2896491, b: 0.1004361, a: 1}
-    - _SpecuColor: {r: 0.46226418, g: 0.35702637, b: 0.24203454, a: 1}
+    - _HiColor: {r: 0.7735849, g: 0.6812755, b: 0.3466536, a: 1}
+    - _RimColor: {r: 0.3207547, g: 0.055980776, b: 0.06276983, a: 1}
+    - _SpecuColor: {r: 0.9150943, g: 0.76255214, b: 0.45323068, a: 1}

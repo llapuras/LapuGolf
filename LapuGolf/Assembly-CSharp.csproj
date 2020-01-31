@@ -63,10 +63,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\LowPolyFencePack\Scripts\DoorController.cs" />
+    <Compile Include="Assets\Resources\LowPolyFencePack\Scripts\DoorToggle.cs" />
+    <Compile Include="Assets\Scripts\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\MousePosMove.cs" />
+    <Compile Include="Assets\Scripts\move.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\selfrotate.cs" />
     <Compile Include="Assets\Scripts\test.cs" />
-    <None Include="Assets\Shaders\Metal.shader" />
+    <None Include="Assets\Resources\LowPolyFencePack\Shaders\Fire.shader" />
+    <None Include="Assets\Resources\LowPolyFencePack\Shaders\Metal.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/GameDev/LapuGolf/LapuGolf/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -93,6 +99,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/GameDev/LapuGolf/LapuGolf/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/GameDev/LapuGolf/LapuGolf/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
