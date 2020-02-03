@@ -7,6 +7,7 @@ public class move : MonoBehaviour
     public float thrust = 1.0f;
     public float max_thrust = 10.0f;
     public float speed = 1.0f;
+    public float jumpspeed = 10;
     public Object bomb;
     public Text coinCountText;
     public Text bombCountText;
@@ -17,10 +18,10 @@ public class move : MonoBehaviour
 
     private Rigidbody rb;
     private LineRenderer dirline;
-    private int bombCount = 0;
+    private int bombCount = 99;
     private int coinCount = 0;
     private int heartCount = 1;
-  
+
     private Vector3 direction;
     private Vector3 pos;
     private void Start()
@@ -35,7 +36,7 @@ public class move : MonoBehaviour
 
         if (Input.GetKey("w"))
             rb.AddForce(Camera.main.transform.forward * speed * 100);
-        
+
         if (Input.GetKey("s"))
             rb.AddForce(-1 * Camera.main.transform.forward * speed * 100);
 
@@ -45,6 +46,10 @@ public class move : MonoBehaviour
         if (Input.GetKey("d"))
             rb.AddForce(Camera.main.transform.right * speed * 100);
 
+        if (Input.GetKey("space")) {
+            Debug.Log("awsl");
+            rb.AddForce(Vector3.up * jumpspeed * 100000);
+        }
 
         shootSelf();
         shootBomb();
@@ -52,9 +57,7 @@ public class move : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.gameObject.name);
 
-       
         if (col.gameObject.name.Contains("bomb"))
         {
             Destroy(col.gameObject);
@@ -82,6 +85,7 @@ public class move : MonoBehaviour
         }
     }
 
+    //预测路线，显示预测线，有投掷上限
     void shootBomb()
     {
         if (Input.GetMouseButton(0))
@@ -113,21 +117,29 @@ public class move : MonoBehaviour
         {
 
             direction = pos - rb.transform.position;
+            direction.y = 2;
             dirline.positionCount = 0;
 
             Vector3 newpos = rb.transform.position;
             newpos.x += 1;
             newpos.z += 1;
 
-            GameObject bo = Instantiate(bomb, newpos, Quaternion.identity) as GameObject;
+            if (bombCount > 0)
+            {
+                GameObject bo = Instantiate(bomb, newpos, Quaternion.identity) as GameObject;
+                bo.name = "bobobo";
+                //rb.AddForce(direction * thrust * 200);
+                bo.GetComponent<Rigidbody>().AddForce(direction * thrust * 200);
 
-            //rb.AddForce(direction * thrust * 200);
-            bo.GetComponent<Rigidbody>().AddForce(direction * thrust * 200);
+                thrust = 0;
 
-            thrust = 0;
-
-            bombCount--;
-            coinCountText.text = coinCount.ToString();
+                bombCount--;
+                bombCountText.text = bombCount.ToString();
+            }
+            else
+            {
+                Debug.Log("No Bombs!");
+            }
         }
     }
 
@@ -178,6 +190,21 @@ public class move : MonoBehaviour
             coinCountText.text = coinCount.ToString();
         }
 
+    }
+
+    void isBoom()
+    {
+        RaycastHit hit;
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.rigidbody != null)
+            {
+
+
+            }
+        }
     }
 }
 
