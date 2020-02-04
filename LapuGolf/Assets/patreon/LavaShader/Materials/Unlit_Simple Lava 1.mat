@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Unlit_Simple Lava 1
+  m_Shader: {fileID: 4800000, guid: 282f39f8846b8d046872df2cc3a2b437, type: 3}
+  m_ShaderKeywords: DISTORT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DarkTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortTex:
+        m_Texture: {fileID: 2800000, guid: 3b045b3cf2509024eb8302d39e675baf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1f173896b25dc1c449b3cfec70f39d01, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Amount: 0.158
+    - _Cutoff: 0.587
+    - _CutoffDark: 0.9
+    - _DARK: 0
+    - _DISTORT: 1
+    - _Distortion: 0.175
+    - _Edge: 8
+    - _EdgeBlur: 0.468
+    - _Foam: 4.64
+    - _Height: 0.221
+    - _Intensity: 0.9
+    - _Offset: 1.69
+    - _Scale: 0.282
+    - _Scale2: 0.214
+    - _ScaleDist: 0.5
+    - _Speed: 0.269
+    - _Speed2: 1.34
+    - _SpeedDistortX: -0.75
+    - _SpeedDistortY: 1.25
+    - _SpeedMain: 0
+    - _SpeedMainX: 0.4
+    - _SpeedMainY: 0.4
+    - _Strength: 1.29
+    - _StrengthTop: 3.19
+    - _TextureDistort: 0.164
+    - _TopBlur: 0.1
+    - _VertexC: 1.03
+    - _VertexDistortion: 0.571
+    m_Colors:
+    - _Color: {r: 0.3679245, g: 0, b: 0.11860749, a: 0.5}
+    - _Color2: {r: 1, g: 0.39560807, b: 0.043137252, a: 0.5}
+    - _Color3: {r: 1, g: 0.80715543, b: 0.1462264, a: 0.5}
+    - _DarkCol: {r: 1, g: 1, b: 1, a: 0.5}
+    - _EdgeC: {r: 1, g: 0.49045622, b: 0.15686274, a: 0.5}
+    - _FoamC: {r: 0.8773585, g: 0.47312886, b: 0, a: 0.5}
