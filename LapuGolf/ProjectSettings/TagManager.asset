@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Canvas
   - RotateBoard
+  - StaticBoard
+  - Ground
+  - NextLevel
   layers:
   - Default
   - TransparentFX
@@ -15,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - ice
-  - 
-  - 
+  - Ground
+  - Breakable
+  - Static
   - 
   - 
   - 

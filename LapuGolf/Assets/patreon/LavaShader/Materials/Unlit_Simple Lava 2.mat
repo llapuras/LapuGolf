@@ -47,15 +47,15 @@ Material:
     - _DISTORT: 1
     - _Distortion: 0.192
     - _Edge: 8
-    - _EdgeBlur: 0.421
+    - _EdgeBlur: 0.499
     - _Foam: 10
     - _Height: 0.197
     - _Intensity: 0.9
-    - _Offset: 10
+    - _Offset: 2.1
     - _Scale: 0.224
     - _Scale2: 0.355
-    - _ScaleDist: 0.521
-    - _Speed: 0.488
+    - _ScaleDist: 0.387
+    - _Speed: 0.269
     - _Speed2: 2.33
     - _SpeedDistortX: 0.89
     - _SpeedDistortY: -0.02
@@ -67,11 +67,11 @@ Material:
     - _TextureDistort: 0.164
     - _TopBlur: 0.134
     - _VertexC: 1
-    - _VertexDistortion: 0.624
+    - _VertexDistortion: 0.368
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0.19999981, a: 0.5}
+    - _Color: {r: 0.14150941, g: 0.10079208, b: 0.1116563, a: 0.5}
     - _Color2: {r: 0.6901961, g: 0.30597866, b: 0.08235294, a: 0.5}
-    - _Color3: {r: 1, g: 0.9464526, b: 0.8820755, a: 0.5}
+    - _Color3: {r: 1, g: 0.6502405, b: 0.23113209, a: 0.5}
     - _DarkCol: {r: 1, g: 1, b: 1, a: 0.5}
-    - _EdgeC: {r: 1, g: 0.16159368, b: 0, a: 0.5}
+    - _EdgeC: {r: 0.6117647, g: 0.29929593, b: 0.09411764, a: 0.5}
     - _FoamC: {r: 0.7169812, g: 0.34663376, b: 0.11160557, a: 0.5}
