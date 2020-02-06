@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     public float thrust = 1.0f;
-    public float max_thrust = 5.0f;
+    public float maxthrust = 10.0f;
     public float speed = 5.0f;
     public float jumpspeed = 0.1f;
 
@@ -14,6 +14,8 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 direction;
     private Vector3 pos;
+    private float force;
+
     Vector3 dir;
     private void Start()
     {
@@ -24,7 +26,13 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        KeyboardRPG();//for testing
+        PointShoot();
+    }
 
+
+    void KeyboardRPG()
+    {
         if (Input.GetKey("w"))
         {
             dir = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
@@ -45,12 +53,10 @@ public class PlayerMove : MonoBehaviour
             rb.AddForce(Vector3.up * jumpspeed * 5);
         }
 
-        shootBomb();
     }
 
-
     //预测路线，显示预测线，有投掷上限
-    void shootBomb()
+    void PointShoot()
     {
         if (Input.GetMouseButton(0))
         {
@@ -60,19 +66,13 @@ public class PlayerMove : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.rigidbody.name == "Ground" || hit.rigidbody.name.Contains("platform"))
+                if (hit.rigidbody.tag == "Ground" || hit.rigidbody.tag == "Platform")
                 {
-
-                    if (thrust <= max_thrust)
-                    {
-                        thrust++;
-                    }
-                    else thrust = max_thrust;
-
                     dirline.positionCount = 2;
                     dirline.SetPosition(0, rb.transform.position);
                     dirline.SetPosition(1, hit.point);
                     pos = hit.point;
+                    force = Mathf.Min(Vector3.Distance(hit.point, rb.transform.position), maxthrust) * thrust;
                 }
             }
         }
@@ -82,8 +82,7 @@ public class PlayerMove : MonoBehaviour
             direction = pos - rb.transform.position;
             direction.y = 2;
             dirline.positionCount = 0;
-            rb.AddForce(direction * thrust * 10);
-            thrust = 0;
+            rb.AddForce(direction * force * 10);
         }
     }
 

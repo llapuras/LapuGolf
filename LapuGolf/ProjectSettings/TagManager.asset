@@ -9,6 +9,7 @@ TagManager:
   - StaticBoard
   - Ground
   - NextLevel
+  - Grass
   layers:
   - Default
   - TransparentFX
