@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMove : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 direction;
     private Vector3 pos;
     private float force;
+    private Scene currentScene;
 
     Vector3 dir;
     private void Start()
@@ -28,6 +31,7 @@ public class PlayerMove : MonoBehaviour
     {
         KeyboardRPG();//for testing
         PointShoot();
+        isOutofArea();
     }
 
 
@@ -66,7 +70,7 @@ public class PlayerMove : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.rigidbody.tag == "Ground" || hit.rigidbody.tag == "Platform")
+                if (hit.rigidbody.tag == "Ground" || hit.rigidbody.tag == "Block")
                 {
                     dirline.positionCount = 2;
                     dirline.SetPosition(0, rb.transform.position);
@@ -86,5 +90,16 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-}
 
+    void isOutofArea()
+    {
+        if(transform.position.y < -20)
+        {
+            Destroy(gameObject);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+          
+        }
+    }
+
+}

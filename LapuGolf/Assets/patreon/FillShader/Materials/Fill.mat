@@ -4,9 +4,8 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: Fill
   m_Shader: {fileID: 4800000, guid: b5dd0ea65ae939048aebc891a0af0956, type: 3}
   m_ShaderKeywords: 
@@ -70,7 +69,7 @@ Material:
     - _Degrees: 65
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FillAmount: -10
+    - _FillAmount: 0.4
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

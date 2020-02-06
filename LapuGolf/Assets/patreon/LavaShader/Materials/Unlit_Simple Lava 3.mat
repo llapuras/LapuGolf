@@ -51,7 +51,7 @@ Material:
     - _Foam: 4.86
     - _Height: 0.144
     - _Intensity: 10
-    - _Offset: 1.48
+    - _Offset: 0.9
     - _Scale: 0.328
     - _Scale2: 0.36
     - _ScaleDist: 0.495
@@ -65,13 +65,13 @@ Material:
     - _Strength: 2.05
     - _StrengthTop: 6.59
     - _TextureDistort: 0.164
-    - _TopBlur: 0.075
+    - _TopBlur: 0.15
     - _VertexC: 1
     - _VertexDistortion: 0.598
     m_Colors:
     - _Color: {r: 0.14150941, g: 0.10079208, b: 0.1116563, a: 0.5}
     - _Color2: {r: 0.59607846, g: 0.146312, b: 0, a: 0.5}
-    - _Color3: {r: 1, g: 0.54297036, b: 0.17647058, a: 0.5}
+    - _Color3: {r: 0.4056604, g: 0.3470255, b: 0.30041832, a: 0.5}
     - _DarkCol: {r: 0, g: 0.41432148, b: 0.4339623, a: 0.5}
     - _EdgeC: {r: 0.764151, g: 0.26438978, b: 0, a: 0.5}
     - _FoamC: {r: 1, g: 0.38975346, b: 0, a: 0.5}

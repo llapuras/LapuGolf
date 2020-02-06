@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class Collectable : MonoBehaviour
 {
     public string nextLevelScene;
-    public int golacoincount = 0; 
+    public int golacoincount = 0;
+    public float stopTime = 3;
     GameObject nextLevel;
     int coinCount = 0;
     // Start is called before the first frame update
