@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5353190002206010039}
   - component: {fileID: 1393428928}
   - component: {fileID: 121538875}
-  - component: {fileID: 1615698441}
   - component: {fileID: 2426253424850370821}
-  - component: {fileID: 2487601111198507674}
+  - component: {fileID: 1685816110}
+  - component: {fileID: 1685816111}
   m_Layer: 0
   m_Name: NormalBall
   m_TagString: Player
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d0706c26f085554e93be26eb0a766c6, type: 2}
+  - {fileID: 2100000, guid: 4be33421245a77f4e969b356faca660c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,13 +106,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5353190002206010038}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!120 &1393428928
 LineRenderer:
@@ -131,7 +131,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dfd1391e0617ace48af560a46f2d79f6, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,7 +152,68 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: 13.45, y: 4.2, z: 20.75912}
+  - {x: 13.5064, y: 4.219391, z: 20.75912}
+  - {x: 13.559416, y: 4.233812, z: 20.75912}
+  - {x: 13.609251, y: 4.2435613, z: 20.75912}
+  - {x: 13.6560955, y: 4.2489195, z: 20.75912}
+  - {x: 13.7001295, y: 4.25015, z: 20.75912}
+  - {x: 13.741522, y: 4.2475004, z: 20.75912}
+  - {x: 13.780431, y: 4.2412033, z: 20.75912}
+  - {x: 13.817005, y: 4.2314777, z: 20.75912}
+  - {x: 13.851385, y: 4.2185297, z: 20.75912}
+  - {x: 13.883702, y: 4.2025523, z: 20.75912}
+  - {x: 13.914081, y: 4.1837273, z: 20.75912}
+  - {x: 13.942636, y: 4.1622252, z: 20.75912}
+  - {x: 13.969478, y: 4.138207, z: 20.75912}
+  - {x: 13.994709, y: 4.1118236, z: 20.75912}
+  - {x: 14.018427, y: 4.083217, z: 20.75912}
+  - {x: 14.040721, y: 4.0525208, z: 20.75912}
+  - {x: 14.061678, y: 4.01986, z: 20.75912}
+  - {x: 14.081377, y: 3.9853523, z: 20.75912}
+  - {x: 14.099895, y: 3.949109, z: 20.75912}
+  - {x: 14.117301, y: 3.9112341, z: 20.75912}
+  - {x: 14.133663, y: 3.8718255, z: 20.75912}
+  - {x: 14.149043, y: 3.830975, z: 20.75912}
+  - {x: 14.163501, y: 3.7887692, z: 20.75912}
+  - {x: 14.177091, y: 3.7452896, z: 20.75912}
+  - {x: 14.189865, y: 3.7006123, z: 20.75912}
+  - {x: 14.201873, y: 3.6548095, z: 20.75912}
+  - {x: 14.2131605, y: 3.6079485, z: 20.75912}
+  - {x: 14.223771, y: 3.560093, z: 20.75912}
+  - {x: 14.233745, y: 3.5113025, z: 20.75912}
+  - {x: 14.24312, y: 3.4616332, z: 20.75912}
+  - {x: 14.251933, y: 3.4111378, z: 20.75912}
+  - {x: 14.260217, y: 3.359866, z: 20.75912}
+  - {x: 14.268003, y: 3.307864, z: 20.75912}
+  - {x: 14.275323, y: 3.2551758, z: 20.75912}
+  - {x: 14.282204, y: 3.2018428, z: 20.75912}
+  - {x: 14.2886715, y: 3.1479034, z: 20.75912}
+  - {x: 14.294751, y: 3.093394, z: 20.75912}
+  - {x: 14.300467, y: 3.0383492, z: 20.75912}
+  - {x: 14.305839, y: 2.9828005, z: 20.75912}
+  - {x: 14.310888, y: 2.9267786, z: 20.75912}
+  - {x: 14.315635, y: 2.8703117, z: 20.75912}
+  - {x: 14.320097, y: 2.8134265, z: 20.75912}
+  - {x: 14.324291, y: 2.756148, z: 20.75912}
+  - {x: 14.328234, y: 2.6985002, z: 20.75912}
+  - {x: 14.33194, y: 2.6405048, z: 20.75912}
+  - {x: 14.335423, y: 2.582183, z: 20.75912}
+  - {x: 14.338698, y: 2.523554, z: 20.75912}
+  - {x: 14.341777, y: 2.4646368, z: 20.75912}
+  - {x: 14.34467, y: 2.4054482, z: 20.75912}
+  - {x: 14.34739, y: 2.3460047, z: 20.75912}
+  - {x: 14.349947, y: 2.2863214, z: 20.75912}
+  - {x: 14.35235, y: 2.226413, z: 20.75912}
+  - {x: 14.3546095, y: 2.1662927, z: 20.75912}
+  - {x: 14.356733, y: 2.1059732, z: 20.75912}
+  - {x: 14.358729, y: 2.045467, z: 20.75912}
+  - {x: 14.360605, y: 1.9847846, z: 20.75912}
+  - {x: 14.362369, y: 1.923937, z: 20.75912}
+  - {x: 14.364026, y: 1.8629339, z: 20.75912}
+  - {x: 14.365584, y: 1.8017848, z: 20.75912}
+  - {x: 14.367049, y: 1.7404983, z: 20.75912}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -160,8 +221,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.048780486
+        value: 0.14563191
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -173,8 +234,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -220,24 +281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536176896f7a50d4091dfe4d15fb6d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 8
-  max_thrust: 13
+  thrust: 3
+  maxthrust: 5
   speed: 5
   jumpspeed: 0.1
---- !u!114 &1615698441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353190002206010038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7ad18f9d4e09141b42975e5ff11870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevelScene: Level02
-  golacoincount: 1
 --- !u!114 &2426253424850370821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,16 +297,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04adc86431dda046bb50f61402f2c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2487601111198507674
+--- !u!114 &1685816110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5353190002206010038}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e9bc563b52bbe47a170021a4529e86, type: 3}
+  m_Script: {fileID: 11500000, guid: b35ff9438d96a4c42b21f28a9eba7435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalTime: 60
+  Ability: 
+  ability: {fileID: 0}
+  cd: {fileID: 0}
+  skillcd: 5
+  noticeUI: {fileID: 0}
+--- !u!114 &1685816111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5353190002206010038}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b6c8a0056a1354ca1601c25e84ac85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeteenStep: 1
+  stepCount: 60
+  addedV: {x: 3, y: 0, z: 0}
+  addedF: {x: 0, y: 333, z: 0}
+  keyToActivate: 32

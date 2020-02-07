@@ -53,59 +53,67 @@ public class CameraControl : MonoBehaviour
         currentRotation = transform.rotation;
         desiredRotation = transform.rotation;
 
-        xDeg = desiredRotation.eulerAngles.y;// Vector3.Angle(Vector3.right, transform.right);
-        yDeg = desiredRotation.eulerAngles.x;// Vector3.Angle(Vector3.up, transform.up);
+        //xDeg = desiredRotation.eulerAngles.y;// Vector3.Angle(Vector3.right, transform.right);
+        //yDeg = desiredRotation.eulerAngles.x;// Vector3.Angle(Vector3.up, transform.up);
+
+
+        Vector3.Angle(Vector3.right, transform.right);
+        Vector3.Angle(Vector3.up, transform.up);
 
         position = targetObject.position - (Quaternion.Euler(yDeg, xDeg, 0f) * Vector3.forward * currentDistance + targetOffset);
     }
 
     void LateUpdate()
     {
-        if (Input.GetMouseButton(2) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.LeftControl))
+        if (targetObject != null)
         {
-            desiredDistance -= Input.GetAxis("Mouse Y") * 0.02f * zoomSpeed * 0.125f * Mathf.Abs(desiredDistance);
-            Debug.Log(desiredDistance);
+            if (Input.GetMouseButton(2) && Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.LeftControl))
+            {
+                desiredDistance -= Input.GetAxis("Mouse Y") * 0.02f * zoomSpeed * 0.125f * Mathf.Abs(desiredDistance);
+                Debug.Log(desiredDistance);
+            }
+            else if (Input.GetMouseButton(1))
+            {
+                xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+                yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
+
+                desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
+                currentRotation = transform.rotation;
+                rotation = Quaternion.Lerp(currentRotation, desiredRotation, 0.02f * zoomDampening);
+                transform.rotation = rotation;
+                idleTimer = 0;
+                idleSmooth = 0;
+
+            }
+            else if (Input.GetMouseButton(2))
+            {
+
+                position.x += Input.GetAxis("Mouse X") * 0.02f * zoomSpeed * 0.125f * Mathf.Abs(desiredDistance);
+            }
+            else
+            {
+                //idleTimer += 0.02f;
+                //if (idleTimer > rotateOnOff && rotateOnOff > 0)
+                //{
+                //    idleSmooth += (0.02f + idleSmooth) * 0.005f;
+                //    idleSmooth = Mathf.Clamp(idleSmooth, 0, 1);
+                //    xDeg += xSpeed * 0.001f * idleSmooth;
+                //}
+
+                //yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
+                //desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
+                //currentRotation = transform.rotation;
+                //rotation = Quaternion.Lerp(currentRotation, desiredRotation, 0.02f * zoomDampening * 2);
+                //transform.rotation = rotation;
+            }
+
+            desiredDistance -= Input.GetAxis("Mouse ScrollWheel") * 0.02f * zoomSpeed * Mathf.Abs(desiredDistance);
+            desiredDistance = Mathf.Clamp(desiredDistance, minDistance, maxDistance);
+            currentDistance = Mathf.Lerp(currentDistance, desiredDistance, 0.02f * zoomDampening);
+            position = targetObject.position - (rotation * Vector3.forward * currentDistance + targetOffset);
+            transform.position = position;
         }
-        else if (Input.GetMouseButton(1))
-        {
-            xDeg += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-            yDeg -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-            yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
-
-            desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
-            currentRotation = transform.rotation;
-            rotation = Quaternion.Lerp(currentRotation, desiredRotation, 0.02f * zoomDampening);
-            transform.rotation = rotation;
-            idleTimer = 0;
-            idleSmooth = 0;
-
-        }
-        else if (Input.GetMouseButton(2)) {
-
-            position.x += Input.GetAxis("Mouse X") * 0.02f * zoomSpeed * 0.125f * Mathf.Abs(desiredDistance);
-        }
-        else
-        {
-            //idleTimer += 0.02f;
-            //if (idleTimer > rotateOnOff && rotateOnOff > 0)
-            //{
-            //    idleSmooth += (0.02f + idleSmooth) * 0.005f;
-            //    idleSmooth = Mathf.Clamp(idleSmooth, 0, 1);
-            //    xDeg += xSpeed * 0.001f * idleSmooth;
-            //}
-
-            //yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
-            //desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
-            //currentRotation = transform.rotation;
-            //rotation = Quaternion.Lerp(currentRotation, desiredRotation, 0.02f * zoomDampening * 2);
-            //transform.rotation = rotation;
-        }
-
-        desiredDistance -= Input.GetAxis("Mouse ScrollWheel") * 0.02f * zoomSpeed * Mathf.Abs(desiredDistance);
-        desiredDistance = Mathf.Clamp(desiredDistance, minDistance, maxDistance);
-        currentDistance = Mathf.Lerp(currentDistance, desiredDistance, 0.02f * zoomDampening);
-        position = targetObject.position - (rotation * Vector3.forward * currentDistance + targetOffset);
-        transform.position = position;
     }
 
     private static float ClampAngle(float angle, float min, float max)

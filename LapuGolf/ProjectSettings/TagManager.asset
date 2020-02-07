@@ -12,6 +12,7 @@ TagManager:
   - Grass
   - Void
   - Block
+  - Collectible
   layers:
   - Default
   - TransparentFX
