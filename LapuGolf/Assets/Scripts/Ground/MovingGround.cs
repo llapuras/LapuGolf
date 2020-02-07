@@ -7,14 +7,15 @@ public class MovingGround : MonoBehaviour
 
     public Vector3 pos0;
     public Vector3 pos1;
-    public float speed = 10;
-    private float stoptime = 15;
+    public float speed = 20;
+
+    //private float stoptime = 15;
+    //private float count;
 
     private float pingpongx;
     private float pingpongy;
     private float pingpongz;
 
-    private float count;
     private float[,] storage;
     private int mode;
 
@@ -23,7 +24,7 @@ public class MovingGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        count = stoptime;
+        //count = stoptime;
         storage = new float[3, 2];
 
         storage[0, 0] = pos0.x;
@@ -43,7 +44,7 @@ public class MovingGround : MonoBehaviour
         {
             if (storage[i, 0] != storage[i, 1])
             {
-                Debug.Log(i);
+                //Debug.Log(i);
                 return i;//必然会返回一个值
             }
         }
@@ -54,15 +55,10 @@ public class MovingGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       
-        if (count > 0)
-        {
-            FinalCaculate();
-            debugtxt = pingpongx + "," + pingpongy + "," + pingpongz;
-            //Debug.Log(debugtxt);
-            transform.localPosition = new Vector3(pingpongx, pingpongy, pingpongz);
-        }
+        FinalCaculate();
+        debugtxt = pingpongx + "," + pingpongy + "," + pingpongz;
+        //Debug.Log(debugtxt);
+        transform.position = new Vector3(pingpongx, pingpongy, pingpongz);
 
     }
 
@@ -71,20 +67,20 @@ public class MovingGround : MonoBehaviour
         if (mode  == 0)
         {
             pingpongx = CaculatePingPong(pos0.x, pos1.x);
-            pingpongy = CaculateOther(pos0.y, pos1.y, Mathf.Abs(pos0.x - pos1.x), pingpongx);
-            pingpongz = CaculateOther(pos0.z, pos1.z, Mathf.Abs(pos0.x - pos1.x), pingpongx);
+            pingpongy = CaculateOther(pos0.y, pos1.y, pos0.x, pos1.x, pingpongx);
+            pingpongz = CaculateOther(pos0.z, pos1.z, pos0.x, pos1.x, pingpongx);
         }
         else if(mode == 1)
         {
             pingpongy = CaculatePingPong(pos0.y, pos1.y);
-            pingpongx = CaculateOther(pos0.x, pos1.x, Mathf.Abs(pos0.y - pos1.y), pingpongy);
-            pingpongz = CaculateOther(pos0.z, pos1.z, Mathf.Abs(pos0.y - pos1.y), pingpongy);
+            pingpongx = CaculateOther(pos0.x, pos1.x, pos0.y, pos1.y, pingpongy);
+            pingpongz = CaculateOther(pos0.z, pos1.z, pos0.y, pos1.y, pingpongy);
         }
         else if(mode == 2)
         {
             pingpongz = CaculatePingPong(pos0.z, pos1.z);
-            pingpongx = CaculateOther(pos0.x, pos1.x, Mathf.Abs(pos0.z - pos1.z), pingpongz);
-            pingpongy = CaculateOther(pos0.y, pos1.y, Mathf.Abs(pos0.z - pos1.z), pingpongz);
+            pingpongx = CaculateOther(pos0.x, pos1.x, pos0.z, pos1.z, pingpongz);
+            pingpongy = CaculateOther(pos0.y, pos1.y, pos0.z, pos1.z, pingpongz);
         }
 
     }
@@ -101,11 +97,14 @@ public class MovingGround : MonoBehaviour
         }
     }
 
-    float CaculateOther(float posn1, float posn2, float ppdx, float pp)
+    float CaculateOther(float posn1, float posn2, float posx1, float posx2, float pp)
     {
-        if (ppdx != 0 && posn1 != posn2) 
+        if (Mathf.Abs(posx1 - posx2) != 0 && posn1 != posn2) 
         {
-            return Mathf.Max(posn1, posn2) - Mathf.Abs(posn1 - posn2) * (1 - pp / ppdx);
+
+            Debug.Log((Mathf.Max(posx1, posx2) - pp));
+
+            return Mathf.Max(posn1, posn2) - Mathf.Abs(posn1 - posn2) * ((Mathf.Max(posx1, posx2) - pp) / Mathf.Abs(posx1 - posx2));
         }
         else
             return posn2;
