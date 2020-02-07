@@ -58,7 +58,7 @@ public class MovingGround : MonoBehaviour
         FinalCaculate();
         debugtxt = pingpongx + "," + pingpongy + "," + pingpongz;
         //Debug.Log(debugtxt);
-        transform.position = new Vector3(pingpongx, pingpongy, pingpongz);
+        transform.localPosition = new Vector3(pingpongx, pingpongy, pingpongz);
 
     }
 
@@ -101,9 +101,7 @@ public class MovingGround : MonoBehaviour
     {
         if (Mathf.Abs(posx1 - posx2) != 0 && posn1 != posn2) 
         {
-
-            Debug.Log((Mathf.Max(posx1, posx2) - pp));
-
+            //Debug.Log((Mathf.Max(posx1, posx2) - pp));
             return Mathf.Max(posn1, posn2) - Mathf.Abs(posn1 - posn2) * ((Mathf.Max(posx1, posx2) - pp) / Mathf.Abs(posx1 - posx2));
         }
         else

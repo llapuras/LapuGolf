@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        KeyboardRPG();//for testing
+        //KeyboardRPG();//for testing
         PointShoot();
         isOutofArea();
     }
@@ -52,10 +52,10 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey("d"))
             rb.AddForce(Camera.main.transform.right * speed * 10);
 
-        if (Input.GetKey("space"))
-        {
-            rb.AddForce(Vector3.up * jumpspeed * 5);
-        }
+        //if (Input.GetKey("space"))
+        //{
+        //    rb.AddForce(Vector3.up * jumpspeed * 5);
+        //}
 
     }
 

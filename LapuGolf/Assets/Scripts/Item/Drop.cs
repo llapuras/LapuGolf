@@ -14,39 +14,43 @@ public class Drop : MonoBehaviour
     public Text cd;
     public int skillcd = 10;
 
+    public GameObject noticeUI;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        GetComponent<SkillCD>().TotalTime = 0;
+        //GetComponent<SkillCD>().TotalTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        cd.text = GetComponent<SkillCD>().TotalTime.ToString(); 
+       // cd.text = GetComponent<SkillCD>().TotalTime.ToString(); 
 
         if (Ability == "Bomb")
         {
             item = Resources.Load("Prefab/003/bomb") as GameObject;
+
+            if (Input.GetKeyDown("space"))
+            {
+                //if (GetComponent<SkillCD>().TotalTime <= 0)
+                {
+                    dropPos = player.transform.position;
+                    dropPos.z -= 2;
+                    GameObject it = Instantiate(item, dropPos, Quaternion.identity) as GameObject;
+                    it.GetComponent<BoxCollider>().enabled = false;
+                    //GetComponent<SkillCD>().TotalTime = skillcd;
+                }
+                //else
+                //{
+                //    Debug.Log("not the time");
+                //}
+            }
         }
 
-        if (Input.GetKeyDown("space"))
-        {
-            if (GetComponent<SkillCD>().TotalTime <= 0)
-            {
-                dropPos = player.transform.position;
-                dropPos.z -= 2;
-                GameObject it = Instantiate(item, dropPos, Quaternion.identity) as GameObject;
-                it.GetComponent<BoxCollider>().enabled = false;
-                GetComponent<SkillCD>().TotalTime = skillcd;
-            }
-            else
-            {
-                Debug.Log("not the time");
-            }
-        }
+
 
     }
 
@@ -56,7 +60,9 @@ public class Drop : MonoBehaviour
         {
             Destroy(col.gameObject);
             Ability = "Bomb";
-            ability.text = "Bomb";
+            //ability.text = "Bomb";
+            noticeUI.SetActive(true);
+
         }
     }
 }
